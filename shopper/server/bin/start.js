@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-
 const http = require('http');
 const mongoose = require('mongoose');
+const Redis = require('ioredis');
 
 const config = require('../config');
 const App = require('../app');
@@ -14,6 +14,24 @@ async function connectToMongoose() {
         useFindAndModify: false,
     });
 }
+
+function connectToRedis() {
+    const redis = new Redis(config.redis.port);
+
+    redis.on('connect', () => {
+        console.info('Redis connected successfully');
+    });
+
+    redis.on('error', (error) => {
+        console.error(error);
+        process.exit(1);
+    });
+
+    return redis;
+}
+
+const redis = connectToRedis();
+config.redis.client = redis;
 
 /* Logic to start the application */
 const app = App(config);
