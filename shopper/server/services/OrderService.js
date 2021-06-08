@@ -30,7 +30,7 @@ class OrderService {
 
         return Promise.all(
             items.map(async (item) => {
-                const orderItem = await this.models.orderItem.create({
+                const orderItem = await this.models.OrderItem.create({
                     sku: item.sku,
                     qty: item.qty,
                     price: item.price,
