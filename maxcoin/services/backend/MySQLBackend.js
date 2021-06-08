@@ -37,7 +37,7 @@ class MySQLBackend {
 
     async getMax() {
         return this.connection.query(
-            'SELECT * FROM coinvalues ORDER by coinvale DESC LIMIT 0,1'
+            'SELECT * FROM coinvalues ORDER by coinvalue DESC LIMIT 0,1'
         );
     }
 
