@@ -16,7 +16,9 @@
     "express-session": "^1.17.1",
     "ioredis": "^4.27.5",
     "mongoose": "^5.12.12",
-    "pug": "^3.0.2"
+    "mysql2": "^2.2.5",
+    "pug": "^3.0.2",
+    "sequelize": "^6.6.2"
   },
   "devDependencies": {
     "eslint": "^7.10.0",
