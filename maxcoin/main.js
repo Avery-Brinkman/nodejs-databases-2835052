@@ -1,5 +1,6 @@
 const MongoBackend = require('./services/backend/MongoBackend');
 const RedisBackend = require('./services/backend/RedisBackend');
+const MySQLBackend = require('./services/backend/MySQLBackend');
 
 // eslint-disable-next-line no-unused-vars
 async function runMongo() {
@@ -7,12 +8,18 @@ async function runMongo() {
     return mongoBackend.max();
 }
 
+// eslint-disable-next-line no-unused-vars
 async function runRedis() {
     const redisBackend = new RedisBackend();
     return redisBackend.max();
 }
 
-runRedis()
+async function runMySQL() {
+    const mySQLBackend = new MySQLBackend();
+    return mySQLBackend.max();
+}
+
+runMySQL()
     .then((result) => {
         console.log(result);
     })
