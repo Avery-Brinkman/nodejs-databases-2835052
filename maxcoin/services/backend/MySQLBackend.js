@@ -15,7 +15,7 @@ class MySQLBackend {
             host: 'localhost',
             port: 3406,
             user: 'root',
-            password: '',
+            password: '', // PASSWORD NEEDS TO BE ADDED BEFORE RUNNING
             database: 'maxcoin',
         });
         return this.connection;
